@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GameSwap | Welcome</title>
+    <link rel="stylesheet" href="bulma.css">
+    <link rel="icon" href="icon.png">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+
+      .hero-body
+      {
+        background: url(background.jpg) center/cover;
+      }
+
+          
+    </style>
+
+  
+
+
+
+  </head>
+
+
+<body>
+
+
+  <section class="hero is-black ">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <h1 class="title">GameSwap</h1>
+            <p>Keep gaming</p>
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroB" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active" href="index.html">Home</a>
+            <a class="navbar-item" href="">About us</a>
+            <a class="navbar-item" href="register.html">User229</a>
+            <a class="navbar-item" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <section class="hero is-white is-fullheight">
+  <div class="hero-body">
+
+    <div class="container">
+      
+      <center>
+    	<div class="notification has-text-left has-background-light" style="opacity: 0.95">
+          
+
+          <h1 class="title has-text-black is-2">Latest additions: </h1><br>
+          
+
+
+          <div class="w3-content w3-section">
+          <img class="mySlides" src="slide1.jpg">
+          <img class="mySlides" src="slide2.jpg">
+          <img class="mySlides" src="slide3.jpg">
+        </div>
+
+        <br><br>
+
+        <h1 class="title has-text-black is-2">Categories: </h1><br>
+
+        <div class="columns is-multiline is-size-3">
+        <div class="column is-one-third">
+          
+
+          <div class="box has-background-danger">
+            <br>
+            <center>
+            Action
+            </center>
+            <br>
+            
+          </div>
+
+        </div>
+        <div class="column is-two-thirds">
+
+          <div class="box has-background-primary">
+            <br>
+            <center>
+            Adventure
+            </center>
+            <br>
+            
+          </div>
+          
+        </div>
+        <div class="column is-one-third">
+          
+
+          <div class="box has-background-warning">
+            <br>
+            <center>
+            Sports
+            </center>
+            <br>
+            
+          </div>
+
+        </div>
+        <div class="column is-one-third">
+
+          <div class="box has-background-success">
+            <br>
+            <center>
+            Educational
+            </center>
+            <br>
+            
+          </div>
+
+        </div>
+        <div class="column is-one-third">
+
+          <div class="box has-background-info">
+            <br>
+            <center>
+            First Person Shooter
+            </center>
+            <br>
+            
+          </div>
+
+        </div>
+        <div class="column  is-two-thirds">
+
+          <div class="box has-background-primary">
+            <br>
+            <center>
+            RPG
+            </center>
+            <br>
+            
+          </div>
+          
+        </div>
+        <div class="column">
+
+          <div class="box has-background-warning">
+            <br>
+            <center>
+            View more categories
+            </center>
+            <br>
+            
+          </div>
+          
+        </div>
+        
+        </div>
+
+        <h1 class="title has-text-black is-2">Deals: </h1><br>
+
+        <div class="tile is-ancestor">
+        <div class="tile is-vertical">
+          <div class="tile">
+            <div class="tile is-parent is-vertical">
+              <article class="tile is-child notification is-primary">
+                <p class="title">50% off:</p>
+                <a href="game_page.html"><img src="slide9.jpg"></a>
+              </article>
+              <article class="tile is-child notification is-warning">
+                <p class="title">20% off:</p>
+                <img src="slide5.jpg">
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-info">
+                <p class="title">15% off:</p>
+                
+                <figure class="image is-2by3">
+                  <img src="slide6.jpg">
+                </figure>
+              </article>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-danger">
+              <p class="title">View more great deals</p>
+              <div class="content">
+                <!-- Content -->
+              </div>
+            </article>
+          </div>
+        </div>
+        
+      </div>
+
+        <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 3000); 
+        }
+        </script>
+          
+         
+          
+        </div>
+      </center>
+
+  	</div>
+
+
+
+
+
+
+	</div>
+
+      
+
+  </div>
+
+</section>
+
+<div class="hero-foot"><div class="container has-text-centered"><br><p>© 2020 GameSwap. All rights reserved. All trademarks are property of their respective owners. VAT included in all prices where applicable.<br><br></p></div></div>
+
+</section>
+
+
+
+</body>
+</html>
+
+
+

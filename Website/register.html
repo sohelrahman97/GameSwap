@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register| People's Portal </title>
+    <link rel="stylesheet" href="bulma.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    
+
+  </head>
+
+
+<body>
+
+  <section class="hero is-danger is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+        <div class="box">
+
+        <p><b>Register </b></p>
+        <hr>
+
+        <form action='confirmRegister.php?usr_type=3' method='post'>
+          <div class="control">
+          <label class="radio">
+            <label class='label'>I am a:</label>
+            <input type="radio" name="answer">
+            Individual
+          </label>
+          <label class="radio">
+            <input type="radio" name="answer">
+            Organization
+          </label>
+          <br>
+        </div>
+          <div class='field'>
+          <label class='label'>Name:</label>
+          <div class='control'>
+            <input class='input' name='name' type='text' placeholder='e.g.Sohel Rahman'>
+          </div>
+          </div>
+          <div class='field'>
+          <label class='label'>Age:</label>
+          <div class='control'>
+            <input class='input' name='email' type='text' placeholder='23'>
+          </div>
+          </div>
+          <div class='field'>
+          <label class='label'>Skills:</label>
+          <div class='control'>
+            <input class='input' name='password' type='password' placeholder='Java, C++'>
+          </div>
+          </div>
+          <div class='field'>
+          <label class='label'>Hourly rate:</label>
+          <div class='control'>
+            <input class='input' name='password2' type='password' placeholder='40 Taka'>
+          </div>
+          </div>
+          <div class='field'>
+          <label class='label'>Education</label>
+          <div class='control'>
+            <input class='input' name='age' type='text' placeholder='NSU, IUB, etc'>
+          </div>
+          <div class='field'>
+          <label class='label'>Email</label>
+          <div class='control'>
+            <input class='input' name='institution' type='text' placeholder='example@gmail.com'>
+          </div>
+          <div class='field'>
+          <label class='label'>Password</label>
+          <div class='control'>
+            <input class='input' name='institution' type='text' placeholder='strong password'>
+          </div>
+          <div class='field'>
+          <label class='label'>Confirm password</label>
+          <div class='control'>
+            <input class='input' name='institution' type='text' placeholder='strong password'>
+          </div>
+          
+        
+        <br>
+        <div class='field is-grouped'>
+          <div class='control'>
+            <button class='button is-success' type='submit'>Submit</button>
+          </div>
+        </div>
+        </form>
+        
+        
+        <br>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,175 @@
+.navbar {
+	padding: 10px 80px;
+	font-weight: bold;
+	background-color: #38383B;
+}
+
+.navbar-logo {
+	position: relative;
+	top: -5px;
+}
+
+.loginButton {
+	background-color: inherit;
+	color: inherit;
+	border: 2px solid #B9B9B9;
+	border-radius: 20px;
+	padding: 0px 20px;
+	font-weight: inherit;
+	padding-bottom: 4px;
+}
+
+
+.bodySection {
+	background-color: #38383B;
+}
+
+.homeSection {
+	padding: 40px 80px;
+}
+
+.introText {
+	margin: auto;
+}
+
+.introText h2 {
+	color: white;
+    font-family: Metropolis;
+    font-size: 43px;
+    margin-bottom: 25px;
+}
+
+.introText p {
+	font-family: arial;
+    color: #B9B9B9;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+
+.introImg {
+	text-align: center;
+}
+
+.read {
+    background-color: #737373;
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+    padding: 13px 25px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.start {
+    background-color: #7289DA;
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+    padding: 13px 25px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 12px;
+}
+
+.img1 {
+	max-width: 500px;
+}
+
+
+.featureSection1 {
+	padding: 40px 80px;
+}
+
+.featureText1 {
+	margin: auto;
+	/*padding-right: 80px;*/
+}
+
+.featureText1 h2 {
+	color: white;
+    font-family: Metropolis;
+    font-size: 43px;
+    margin-bottom: 25px;
+}
+
+.featureText1 p {
+	font-family: arial;
+    color: #B9B9B9;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.featureImg1 {
+	text-align: center;
+}
+
+
+
+
+.featureSection2 {
+	padding: 40px 80px;
+}
+
+.featureText2 {
+	margin: auto;
+	/*padding-right: 80px;*/
+}
+
+.featureText2 h2 {
+	color: white;
+    font-family: Metropolis;
+    font-size: 43px;
+    margin-bottom: 25px;
+}
+
+.featureText2 p {
+	font-family: arial;
+    color: #B9B9B9;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.featureImg2 {
+	text-align: center;
+}
+
+
+.endSection {
+	padding: 40px 80px;
+	padding-bottom: 100px;
+	text-align: center;
+}
+
+.endSection h2 {
+	color: white;
+    font-family: Metropolis;
+    font-size: 43px;
+    margin-bottom: 25px;
+}
+
+
+.endSection h3 {
+	color: white;
+    font-family: Metropolis;
+    font-size: 24px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+.footer {
+	width: 100%;
+	background-color: #2b2b2b;
+	color: white;
+	font-weight: bold;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+	
+}
