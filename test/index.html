@@ -1,0 +1,90 @@
+<html>
+<head>
+<script>
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getgame.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
+<script>
+const button = document.querySelector('.button');
+const dropdown = document.querySelector('.dropdown');
+
+button.addEventListener('click', () => {
+  dropdown.classList.toggle('is-open');
+});
+</script>
+<link rel="stylesheet" href="bulma.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+
+<!--<form>
+<select name="users" onchange="showUser(this.value)">
+  <option value="">Select a person:</option>
+  <option value="1">Peter Griffin</option>
+  <option value="2">Lois Griffin</option>
+  <option value="3">Joseph Swanson</option>
+  <option value="4">Glenn Quagmire</option>
+  </select>
+</form> -->
+
+<form action=""> 
+Product name: <input type="text" id="txt1" onkeyup="showUser(this.value)">
+</form>
+
+<div class="field has-addons">
+  
+  <p class="control is-expanded">
+    <input class="input" type="text" id="txt1" onkeyup="showUser(this.value)">
+  </p>
+  <div class="control">
+    <a class="button is-info">
+      Search
+    </a>
+  </div>
+</div>
+
+
+
+
+
+<div id="txtHint"><b>Person info will be listed here...</b></div>
+
+<section class="section">
+  <div class="container">
+    <div class="control">
+      <button class="button" type="button">
+        Toggle Dropdown
+      </button>
+
+      <div class="box dropdown">
+        <ul>
+          <li><a class="nav-item">Dropdown Item 1</a></li>
+          <li><a class="nav-item">Dropdown Item 2</a></li>
+          <li><a class="nav-item">Dropdown Item 3</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

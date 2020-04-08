@@ -161,13 +161,13 @@
 
 
              <div class="table">  
-                     <table class="table is-striped is-bordered">  
+                     <table class="table is-striped is-bordered is-fullwidth">  
                           <tr>  
-                               <th width="40%">Name</th>  
+                               <th>Name</th>  
                                 
-                               <th width="30%">Date/Time rented</th>  
+                               <th>Date/Time rented</th>  
                                 
-                               <th width="8%">Status</th>  
+                               <th>Status</th>  
                           </tr>  
                           
                           <tr>  

@@ -15,7 +15,7 @@
 
 	  mysqli_query($conn,$sql);
 
-	  $sql = "UPDATE usr_games SET ret = 1 WHERE gid='$gid' AND ret=0";
+	  $sql = "UPDATE usr_games SET ret = 1, datetime_return = NOW() WHERE gid='$gid' AND ret=0";
 
 	  mysqli_query($conn,$sql);
 

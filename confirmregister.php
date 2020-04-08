@@ -9,7 +9,7 @@ $country = $_POST['country'];
 require "connection.php";
 
 $sql = "
-		INSERT INTO users values('','$name','$email','$pass','$phone','$country')
+		INSERT INTO users values('','$name','$email','$pass','$phone','$country','0')
 	";
 
 $result = mysqli_query($conn,$sql);
