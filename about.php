@@ -1,17 +1,24 @@
 
+application/x-httpd-php about.php ( HTML document, UTF-8 Unicode text, with CRLF line terminators )
+<?php
+
+require "connection.php";
+    session_start();
+    
+?>
 
 <!DOCTYPE html>
 <html>
   <head>
+    <style> 
+    #map { 
+      height: 400px; 
+      width: 100%; 
+    } 
+    </style> 
     <?php
 
-    require "connection.php";
-    session_start();
-    
-
-
     $uid = $_SESSION["uid"];
-
 
     ?>
     <meta charset="utf-8">
@@ -83,20 +90,42 @@
 
     <div class="container">
       <div class='notification has-text-left has-background-light' style='opacity: 0.95'>
-         
+         <h1 class="title has-text-black is-4"><b>Mission statement: </b></h1>
       
 
-        <p>Owning video games can be very expensive. There are only so many times that you can play a game before you're done with every aspect of it. Resell value of video games fall rapidly after its release. Thus, save money and rent games instead using <b>GameSwap</b>!  </p>      
+        <p>Owning video games can be very expensive. There are only so many times that you can play a game before you're done with every aspect of it. Resell value of video games fall rapidly after its release. Thus, save money and rent games instead using <b>GameSwap</b>!  </p> <br>
+
+        <h1 class="title has-text-black is-4"><b>Our headquarters: </b></h1>
+
+        <div id="map"></div> 
+        <script> 
+        function initMap() { 
+          var temp = {lat: 23.780806, lng: 90.425162}; 
+          var map = new google.maps.Map(document.getElementById('map'), { 
+          zoom: 18, 
+          center: temp 
+          }); 
+          var marker = new google.maps.Marker({ 
+          position: temp, 
+          map: map 
+          }); 
+        } 
+        </script> 
+        <script async defer 
+        src= 
+      "https://maps.googleapis.com/maps/api/js?key= 
+      AIzaSyDPIQSAsNVDJo6HhME7VLrnB8fKSerdsWM&callback=initMap"> 
+        </script>      
                   
 
-  	   </div>
+       </div>
 
 
 
 
 
 
-	   </div>
+     </div>
 
 
       
@@ -115,6 +144,5 @@
 
 </body>
 </html>
-
 
 

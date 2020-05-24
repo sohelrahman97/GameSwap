@@ -19,7 +19,9 @@
     </style>
 
   
-
+    <?php
+      define ('SITE_ROOT', realpath(dirname(__FILE__)));
+    ?>
 
 
   </head>

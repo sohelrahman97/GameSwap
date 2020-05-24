@@ -1,11 +1,44 @@
+<?php
 
+require "connection.php";
+session_start();
+
+
+if(isset($_GET["gid"]))
+              {
+                $gid = $_GET["gid"];
+              }
+
+
+        if (!isset($_COOKIE["cards"])) 
+        {
+          $cookieflag = 0;
+          $visitArray=array($gid);
+          $json = json_encode($visitArray);
+          setcookie("cards", $json);
+        }
+        else
+        {
+          $cookieflag = 1;
+          $cookie = $_COOKIE["cards"];
+          $cookie = stripslashes($cookie);
+          $savedvisitArray = json_decode($cookie, true);
+
+          if (!in_array($gid, $savedvisitArray)) 
+          {
+            array_push($savedvisitArray, $gid);
+            $json = json_encode($savedvisitArray);
+            setcookie("cards", $json);
+          }
+        }
+
+?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <?php
-    require "connection.php";
-    session_start();
+    
 
     if(!isset($_SESSION["uid"])) 
     {
@@ -96,33 +129,7 @@
         <div class='notification has-text-left has-background-light' style='opacity: 0.95'>
           
           <?php
-              if(isset($_GET["gid"]))
-              {
-                $gid = $_GET["gid"];
-              }
-
-
-        if (!isset($_COOKIE["cards"])) 
-        {
-          $cookieflag = 0;
-          $visitArray=array($gid);
-          $json = json_encode($visitArray);
-          setcookie("cards", $json);
-        }
-        else
-        {
-          $cookieflag = 1;
-          $cookie = $_COOKIE["cards"];
-          $cookie = stripslashes($cookie);
-          $savedvisitArray = json_decode($cookie, true);
-
-          if (!in_array($gid, $savedvisitArray)) 
-          {
-            array_push($savedvisitArray, $gid);
-            $json = json_encode($savedvisitArray);
-            setcookie("cards", $json);
-          }
-        }
+              
 
 
               $sql = "
@@ -175,7 +182,7 @@
               <div class='column'>
                 
 
-                <img src=' ". $row['image'] . "' alt='slide9.jpg' >
+                <img src='images/". $row['image'] . "' alt='cover.jpg' >
                 
               
 
@@ -292,7 +299,7 @@
 
                   while ($row = mysqli_fetch_assoc($result))
                   {
-                    $imglink = $row['image'];
+                    $imglink = "images/" . $row['image'];
                     $visit_gid = $row['gid'];
                   }
 

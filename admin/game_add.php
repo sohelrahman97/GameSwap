@@ -1,4 +1,9 @@
+<?php
 
+  require "connection.php";
+  session_start();
+  
+?>
 
 <!DOCTYPE html>
 <html>
@@ -18,8 +23,7 @@
 
   <?php
 
-  require "connection.php";
-  session_start();
+
   
 
   
@@ -67,7 +71,7 @@
         </div>
         <div id="navbarMenuHeroB" class="navbar-menu">
           <div class="navbar-end">
-            <<a class="navbar-item is-active" href="/gameswap/admin/landing_admin.php">Home</a>
+            <a class="navbar-item is-active" href="/gameswap/admin/landing_admin.php">Home</a>
             <a class="navbar-item"><?php     echo $_SESSION['uname'];   ?></a>
             <a class="navbar-item" href="/gameswap/logout.php">Logout</a>
           </div>
@@ -128,18 +132,18 @@
 
     <?php 
 
-    if(isset($_GET["register"]))
+    if(isset($_GET["success"]))
           {
             echo "<div class='notification is-success'>
-                 New admin added.
+                 Game added successfully
                 </div>";
           }
 
     if(isset($_GET["error"]))
           {
-            echo "<div class='notification is-danger'>
-                 Error occured.
-                </div>";
+            echo "<div class='notification is-danger'>"
+                 . $_GET["error"] .
+                "</div>";
           }
 
     ?>
@@ -147,7 +151,7 @@
     <h1 class="title has-text-black is-2">Enter game details: </h1>
 
     
-    <form name='myForm' action="confirmuser.php?action=1" onsubmit="return validateForm()" method='post' enctype="multipart/form-data">
+    <form name='myForm' action="game_add2.php" onsubmit="return validategameForm()" method='post' enctype="multipart/form-data">
           
           <div class='field'>
           <label class='label'>Name:</label>
@@ -158,47 +162,100 @@
           <div class='field'>
           <label class='label'>Year:</label>
           <div class='control'>
-            <input class='input' name='email' type='text' placeholder=''>
+            <input class='input' name='year' type='text' placeholder=''>
           </div>
           </div>
+
           <div class='field'>
-          <label class='label'>Rating:</label>
-          <div class='control'>
-            <input class='input' name='pass' type='password' placeholder=''>
+            <label class='label'>Rating:</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="rating" value="1" checked>
+                1
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating" value="2">
+                2
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating" value="3">
+                3
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating" value="4">
+                4
+              </label>
+              <label class="radio">
+                <input type="radio" name="rating" value="5">
+                5
+              </label>
+            </div>
           </div>
-          </div>
+
           <div class='field'>
           <label class='label'>Price:</label>
           <div class='control'>
-            <input class='input' name='pass2' type='password' placeholder=''>
+            <input class='input' name='price' type='text' placeholder=''>
           </div>
           </div>
-          
 
           <div class="field">
             <label class="label">Category</label>
             <div class="control">
               <div class="select">
-                <select name="country">
-                  <option value="Bangladesh">Bangladesh</option>
-                  <option value="India">India</option>
-                  <option value="Nepal">Nepal</option>
+                <select name="category">
+          
+                <?php 
+
+                require "connection.php";
+
+                  $sql = "
+                    SELECT cid, name
+                    FROM category";
+
+                  $result = mysqli_query($conn,$sql);
+
+                    //$rowcount = mysqli_num_rows($result);
+
+                  while ($row = mysqli_fetch_assoc($result))
+                  {
+                  
+
+                ?>
+
+          
+                <option value="<?php echo $row['cid']; ?>"><?php echo $row['name'];?></option>
+                
+
+              <?php 
+
+              }
+
+              ?>
+
                 </select>
+                </div>
               </div>
             </div>
-          </div>
 
           <div class="field">
             <div class="control">
-              <label class="label">Desciption</label>
+              <label class="label">Description</label>
               <textarea class="textarea is-primary" placeholder="Description" name="description"></textarea>
             </div>
           </div>
 
           <div class="field">
             <div class="control">
+              <label class="label">Units available:</label>
+              <input class='input' name='availnum' type='text' placeholder=''>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
               <label class="label">Cover image:</label>
-              <input type="file" name="fileToUpload" id="fileToUpload">
+              <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
             </div>
           </div>
      

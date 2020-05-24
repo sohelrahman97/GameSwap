@@ -1,12 +1,16 @@
+<?php
 
+    require "connection.php";
+    session_start();
+    
+?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <?php
 
-    require "connection.php";
-    session_start();
+
 
     if(!isset($_SESSION["uid"])) 
     {
@@ -130,7 +134,8 @@
                             $sql = "
                               SELECT u.gid AS gid,u.datetime_rent, ret, name
                               FROM usr_games u, game g
-                              WHERE u.uid=$uid AND u.ret = 0 AND u.gid=g.gid";
+                              WHERE u.uid=$uid AND u.ret = 0 AND u.gid=g.gid
+                              ORDER BY u.datetime_rent DESC";
 
                             $result = mysqli_query($conn,$sql);
 

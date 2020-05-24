@@ -1,4 +1,9 @@
+<?php
 
+  require "connection.php";
+  session_start();
+  
+?>
 
 <!DOCTYPE html>
 <html>
@@ -18,9 +23,6 @@
 
   <?php
 
-  require "connection.php";
-  session_start();
-  
 
   
   if(!isset($_SESSION["uid"])) 

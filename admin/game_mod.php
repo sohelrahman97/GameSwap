@@ -23,7 +23,7 @@
 
   <?php
 
-  
+
   
 
   
@@ -112,14 +112,14 @@
             <a>Manage Users</a>
             <ul>
               <li><a href="user_add.php">Add user</a></li>
-              <li><a href="user_mod.php" class="is-active">View/Delete user</a></li>
+              <li><a href="user_mod.php">View/Delete user</a></li>
             </ul>
           </li>
           <li>
             <a>Manage Games</a>
             <ul>
               <li><a href="game_add.php">Add game</a></li>
-              <li><a href="game_mod.php">View/Delete games</a></li>
+              <li><a href="game_mod.php" class="is-active">View/Delete games</a></li>
             </ul>
           </li>
         </ul>
@@ -130,88 +130,83 @@
   </div>
   <div class="column"  style="padding: 30px">
 
+    <?php 
+
+    if(isset($_GET["success"]))
+          {
+            echo "<div class='notification is-success'>
+                 Game added successfully
+                </div>";
+          }
+
+    if(isset($_GET["error"]))
+          {
+            echo "<div class='notification is-danger'>"
+                 . $_GET["error"] .
+                "</div>";
+          }
+
+    ?>
+
+  <h1 class="title has-text-black is-2">Games: </h1>
+
+
   <?php 
 
-  if(isset($_GET["success"]))
-    {
-      echo "<div class='notification is-success'>
-           Task successful!
-          </div>";
-    }
-
-  if(isset($_GET["register"]))
-    {
-      echo "<div class='notification is-success'>
-           New user added.
-          </div>";
-    }
-
-  if(isset($_GET["error"]))
-    {
-      echo "<div class='notification is-danger'>
-           Error occured.
-          </div>";
-    }
-
-  $sql = "SELECT uid, name,email, phone, country FROM users WHERE admin='0'";
+  $sql = "SELECT * FROM game";
 
   $result = mysqli_query($conn,$sql);
 
   ?>
 
-  <h1 class="title has-text-black is-2">Users: </h1>
 
   <div class="table">  
-                     <table class="table is-striped is-bordered is-fullwidth">  
-                          <tr>  
-                               <th>Name</th>  
-                                
-                               <th>Email</th> 
+   <table class="table is-striped is-bordered is-fullwidth">  
+        <tr>  
+             <th></th>
 
-                               <th>Phone</th>
+             <th>Name</th>  
+              
+             <th>Year</th> 
 
-                               <th>Country</th>
+             <th>Rating</th>
 
-                               <th></th>
+             <th>Price</th>
 
-                               <th></th>
-                          </tr>  
-                          
-                          <tr>  
+             <th></th>
+        </tr>  
+        
+        <tr>  
 
-                            
-                            <?php
+          
+          <?php
 
-                            while ($row = mysqli_fetch_assoc($result))
-                            {
-                            
+          while ($row = mysqli_fetch_assoc($result))
+          {
+          
 
-                            ?>
-                               <td><?php echo  $row['name']; ?></td>  
-                                
-                               <td><?php echo  $row['email']; ?></td> 
+          ?>
+             <td><center><img src="../images/thumb_<?php echo  $row['image']; ?>"></center></td>
 
-                               <td><?php echo  $row['phone']; ?></td> 
+             <td><?php echo  $row['name']; ?></td>  
+              
+             <td><?php echo  $row['year']; ?></td> 
 
-                               <td><?php echo  $row['country']; ?></td> 
+             <td><?php echo  $row['rating']; ?></td> 
 
-                               <td><a href="user_mod2.php?uid=<?php echo  $row['uid']; ?> "> View details/Edit </a></td>
+             <td><?php echo  "$" . $row['price']; ?></td> 
 
-                               <td>
-                                 <div class='field is-grouped'>
-                                  <div class='control'>
-                                    <button class='button is-danger' type='submit'><a href='user_mod3.php?temp_uid=<?php echo $row['uid']; ?>&action=2'>Delete</a></button>
-                                  </div>
-                                  </div>
+             <td><a href="game_mod2.php?gid=<?php echo  $row['gid']; ?> "> View details/Edit </a></td>
 
-                               </td>
 
-                          </tr>  
-                            
-                           <?php  } ?>
-                        </table>
-                        
-                      </div>
+        </tr>  
+          
+         <?php  } ?>
+      </table>
+      
+    </div>
+
+
 
 
     

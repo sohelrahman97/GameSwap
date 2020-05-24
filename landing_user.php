@@ -1,4 +1,10 @@
+<?php
+    
+require "connection.php";
+session_start();
+  
 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -20,10 +26,7 @@
     </style>
 
   <?php
-  require "connection.php";
-  session_start();
   
-
   
   if(!isset($_SESSION["uid"])) 
   {
@@ -162,7 +165,7 @@
 
             while ($row = mysqli_fetch_assoc($result))
             {
-            echo "<a href='game_page.php?gid=" . $row['gid'] . "'>" . "<img class='mySlides' src='" . $row['image'] . "'></a>";
+            echo "<a href='game_page.php?gid=" . $row['gid'] . "'>" . "<img class='mySlides' src='images/" . $row['image'] . "'></a>";
             }
 
             ?>
@@ -263,11 +266,11 @@
             <div class="tile is-parent is-vertical">
               <article class="tile is-child notification is-primary">
                 <p class="title">50% off:</p>
-                <a href="game_page.php?gid=6"><img src="slide9.jpg"></a>
+                <a href="game_page.php?gid=3"><img src="images/slide3.jpg"></a>
               </article>
               <article class="tile is-child notification is-warning">
                 <p class="title">20% off:</p>
-                <a href="game_page.php?gid=4"><img src="slide5.jpg"></a>
+                <a href="game_page.php?gid=5"><img src="images/slide5.jpg"></a>
               </article>
             </div>
             <div class="tile is-parent">
@@ -275,7 +278,7 @@
                 <p class="title">15% off:</p>
                 
                 <figure class="image is-2by3">
-                  <a href="game_page.php?gid=5"><img src="slide6.jpg"></a>
+                  <a href="game_page.php?gid=6"><img src="images/slide6.jpg"></a>
                 </figure>
               </article>
             </div>
