@@ -108,43 +108,67 @@
 
       <?php
 
-                            $sql = "
-                              SELECT g.name AS gname, c.name AS cname, gid, price 
-                              FROM game g, category c
-                              WHERE g.cid = c.cid AND c.cid='$cid'";
+        if($cid != -1)
+        {
+        $sql = "
+          SELECT g.name AS gname, c.name AS cname, gid, price, rating, image 
+          FROM game g, category c
+          WHERE g.cid = c.cid AND c.cid='$cid'";
 
-                            $result = mysqli_query($conn,$sql);
+        $result = mysqli_query($conn,$sql);
 
-                              //$rowcount = mysqli_num_rows($result);
+          //$rowcount = mysqli_num_rows($result); 
+        }
+        else
+        {
+        $sql = "
+          SELECT g.name AS gname, c.name AS cname, gid, price, rating, image 
+          FROM game g, category c
+          WHERE g.cid = c.cid";
+
+        $result = mysqli_query($conn,$sql);
+
+          //$rowcount = mysqli_num_rows($result); 
+        }
+
+
+
 
                             
                             
 
-                            ?>
+      ?>
 
       <div class="table">  
-                     <table class="table is-striped is-bordered">  
-                          <tr>  
-                               <th width="40%">Name</th>  
+                     <table class="table is-striped is-bordered is-fullwidth">  
+                          <tr>
+                              <th></th>  
+
+                              <th>Name</th>  
                                 
-                               <th width="30%">Price</th>  
+                              <th>Price</th>
+
+                              <th>Rating</th>   
                                 
-                               <th width="1%"></th>  
+                              <th></th>  
                           </tr>  
 
                           <?php
 
                           while ($row = mysqli_fetch_assoc($result))
                             {
+                              $thumb = "images/thumb_" . $row['image'];
 
                           ?>
                           
                           <tr>  
-
+                               <td><figure class="image"> <img src="<?php echo $thumb; ?>"> </figure></td>
                             
                                <td><?php echo  $row['gname']; ?></td>  
                                 
                                <td><?php echo  "$" . number_format($row['price'], 2); ?></td>  
+
+                               <td><?php echo  $row['rating']; ?></td>
                                
                                <td><a href='game_page.php?gid= <?php echo $row['gid'] . "'>" ; ?>View</a></td>  
 

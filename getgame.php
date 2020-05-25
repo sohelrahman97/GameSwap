@@ -19,6 +19,7 @@ th {text-align: left;}
 </head>
 <body>
 
+
 <?php
 $q = $_GET['q'];
 
@@ -30,9 +31,10 @@ $result = mysqli_query($conn,$sql);
 
 echo "<table class='table'>";
 while($row = mysqli_fetch_array($result)) {
+	$thumb = "images/thumb_" . $row['image'];
     echo "<tr>";
     
-    echo "<td>" . "<a href='game_page.php?gid=" . $row['gid'] . "'>" . $row['name'] . "</a> $" . $row['price'] . "</td>";
+    echo "<td>" . "<figure class='image is-16by9'><img src='$thumb'></figure>" . "</td>" . "<td>" . "<a href='game_page.php?gid=" . $row['gid'] . "'>" . $row['name'] . "</a> $" . $row['price'] . "</td>";
     
     echo "</tr>";
 }

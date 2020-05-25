@@ -32,6 +32,8 @@ $flag = 0;
 
 // Take care of apostrophes in the description text.
 $description = mysqli_real_escape_string($conn, $description);
+//$description = strip_tags($_POST['description']);   
+//$description = nl2br($description);
 
 
   // Check if image file is a actual image or fake image

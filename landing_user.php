@@ -220,7 +220,7 @@ session_start();
           <div class="box has-background-success">
             <br>
             <center>
-            <a href="show_category.php?cid=7" style="text-decoration: none;">Horror</a>
+            <a href="show_category.php?cid=4" style="text-decoration: none;">Educational</a>
             </center>
             <br>
             
@@ -239,9 +239,9 @@ session_start();
           </div>
 
         </div>
-        <div class="column">
+        <div class="column is-one-quarter">
 
-          <div class="box has-background-primary">
+          <div class="box has-background-success">
             <br>
             <center>
             <a href="show_category.php?cid=6" style="text-decoration: none;">RPG</a>
@@ -251,7 +251,33 @@ session_start();
           </div>
           
         </div>
-        
+
+
+        <div class="column is-one-quarter">
+
+          <div class="box has-background-danger">
+            <br>
+            <center>
+            <a href="show_category.php?cid=7" style="text-decoration: none;">Horror</a>
+            </center>
+            <br>
+            
+          </div>
+          
+        </div>
+
+        <div class="column is-one-quarter">
+
+          <div class="box has-background-primary">
+            <br>
+            <center>
+            <a href="show_category.php?cid=-1" style="text-decoration: none;"><u>All Games</u></a>
+            </center>
+            <br>
+            
+          </div>
+          
+        </div>
         
 
 
@@ -260,40 +286,81 @@ session_start();
 
         <h1 class="title has-text-black is-2">Deals: </h1><br>
 
-        <div class="tile is-ancestor">
-        <div class="tile is-vertical">
-          <div class="tile">
-            <div class="tile is-parent is-vertical">
-              <article class="tile is-child notification is-primary">
-                <p class="title">50% off:</p>
-                <a href="game_page.php?gid=3"><img src="images/slide3.jpg"></a>
-              </article>
-              <article class="tile is-child notification is-warning">
-                <p class="title">20% off:</p>
-                <a href="game_page.php?gid=5"><img src="images/slide5.jpg"></a>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child notification is-info">
-                <p class="title">15% off:</p>
-                
-                <figure class="image is-2by3">
-                  <a href="game_page.php?gid=6"><img src="images/slide6.jpg"></a>
-                </figure>
-              </article>
-            </div>
+        <div class="columns is-multiline is-size-5">
+        <div class="column is-half">
+          
+          <div class="box has-background-info">
+            
+            50% off:
+            
+            <br>
+            
+            <a href="game_page.php?gid=1" style="text-decoration: none;">
+              <figure class="image">
+              <img src="images/slide1.jpg">
+              </figure>
+            </a>
+
           </div>
-          <div class="tile is-parent">
-            <article class="tile is-child notification is-danger">
-              <p class="title has-text-centered">Offers available for limited time. Rent your game now!</p>
-              <div class="content">
-                <!-- Content -->
-              </div>
-            </article>
+        
+
+        </div>
+        <div class="column is-half">
+
+          <div class="box has-background-success">
+            
+            
+            30% off:
+            
+            <br>
+            <a href="game_page.php?gid=2" style="text-decoration: none;">
+            <figure class="image">
+              <img src="images/slide2.jpg">
+            </figure>
+            </a>
+
           </div>
+
+
+        </div>
+        <div class="column is-half">
+          
+
+          <div class="box has-background-danger">
+            
+            20% off:
+            
+            <br>
+            <a href="game_page.php?gid=3" style="text-decoration: none;">
+            <figure class="image">
+              <img src="images/slide3.jpg">
+            </figure>
+            </a>
+
+          </div>
+
+        </div>
+        <div class="column is-half">
+
+          <div class="box has-background-warning">
+            
+            10% off:
+            
+            <br>
+            <a href="game_page.php?gid=4" style="text-decoration: none;">
+            <figure class="image">
+              <img src="images/slide4.jpg">
+            </figure>
+            </a>
+
+          </div>
+            
+          
+
         </div>
         
-      </div>
+        
+        </div>
 
         <script>
         var myIndex = 0;
