@@ -1,4 +1,5 @@
 
+application/x-httpd-php about.php ( HTML document, UTF-8 Unicode text, with CRLF line terminators )
 <?php
 
 require "connection.php";
@@ -9,12 +10,12 @@ require "connection.php";
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      #map {width: 100%; height: 600px;}
-    </style>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
-
+    <style> 
+    #map { 
+      height: 400px; 
+      width: 100%; 
+    } 
+    </style> 
     <?php
 
     $uid = $_SESSION["uid"];
@@ -96,24 +97,40 @@ require "connection.php";
 
         <h1 class="title has-text-black is-4"><b>Our headquarters: </b></h1>
 
-        <div id='map'></div>
-        <script>
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic29oZWxyYWhtYW45NyIsImEiOiJjazhyN2w4MHAwYnVrM2RwZGwwb21vZXFoIn0.64QVA4qIA8bVGnUqm9ridQ';
-        var map = new mapboxgl.Map({
-        container: 'map',
-        center: [90.425162, 23.780806],
-        zoom: 13,
-        style: 'mapbox://styles/mapbox/streets-v11'
-        });
+        <div id="map"></div> 
+        <script> 
+        function initMap() { 
+          var temp = {lat: 23.780806, lng: 90.425162}; 
+          var map = new google.maps.Map(document.getElementById('map'), { 
+          zoom: 18, 
+          center: temp 
+          }); 
+          var marker = new google.maps.Marker({ 
+          position: temp, 
+          map: map 
+          }); 
+        } 
+        </script> 
+        <script async defer 
+        src= 
+      "https://maps.googleapis.com/maps/api/js?key= 
+      AIzaSyDPIQSAsNVDJo6HhME7VLrnB8fKSerdsWM&callback=initMap"> 
+        </script>      
+                  
 
-        var marker = new mapboxgl.Marker()
-        .setLngLat([90.425162, 23.780806])
-        .addTo(map);
-        </script>
+       </div>
+
+
+
+
+
+
+     </div>
+
 
       
-       </div>
-     </div>
+
+  
 
     </section>
 

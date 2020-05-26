@@ -15,7 +15,7 @@ if(isset($_GET["gid"]))
           $cookieflag = 0;
           $visitArray=array($gid);
           $json = json_encode($visitArray);
-          setcookie("cards", $json);
+          setcookie("cards", $json, time() + (86400 * 30));
         }
         else
         {
@@ -28,7 +28,7 @@ if(isset($_GET["gid"]))
           {
             array_push($savedvisitArray, $gid);
             $json = json_encode($savedvisitArray);
-            setcookie("cards", $json);
+            setcookie("cards", $json, time() + (86400 * 30));
           }
         }
 
