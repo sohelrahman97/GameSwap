@@ -149,28 +149,25 @@
                               <th>Price</th>
 
                               <th>Rating</th>   
-                                
-                              <th></th>  
+                                 
                           </tr>  
 
                           <?php
 
                           while ($row = mysqli_fetch_assoc($result))
                             {
-                              $thumb = "images/thumb_" . $row['image'];
+                              $thumb = "images/" . $row['image'];
 
                           ?>
                           
                           <tr>  
-                               <td><figure class="image"> <img src="<?php echo $thumb; ?>"> </figure></td>
+                               <td><center><a href="game_page.php?gid= <?php echo $row['gid']; ?>"><img src="<?php echo $thumb; ?>" width="160" height="90"></a></center></td>
                             
-                               <td><?php echo  $row['gname']; ?></td>  
+                               <td><a href="game_page.php?gid= <?php echo $row['gid']; ?>"><?php echo  $row['gname']; ?></a></td>  
                                 
                                <td><?php echo  "$" . number_format($row['price'], 2); ?></td>  
 
-                               <td><?php echo  $row['rating']; ?></td>
-                               
-                               <td><a href='game_page.php?gid= <?php echo $row['gid'] . "'>" ; ?>View</a></td>  
+                               <td><?php echo  $row['rating']; ?></td> 
 
                                
                           </tr>  

@@ -135,7 +135,7 @@
     if(isset($_GET["success"]))
           {
             echo "<div class='notification is-success'>
-                 Game added successfully
+                 Task successful
                 </div>";
           }
 

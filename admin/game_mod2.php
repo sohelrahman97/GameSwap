@@ -43,6 +43,8 @@
     exit;
   }
 
+  $gid = $_GET['gid'];
+
   ?>
 
 
@@ -118,8 +120,8 @@
           <li>
             <a>Manage Games</a>
             <ul>
-              <li><a href="game_add.php" class="is-active">Add game</a></li>
-              <li><a href="game_mod.php">View/Delete games</a></li>
+              <li><a href="game_add.php">Add game</a></li>
+              <li><a href="game_mod.php" class="is-active">View/Delete games</a></li>
             </ul>
           </li>
         </ul>
@@ -149,20 +151,45 @@
     ?>
 
     <h1 class="title has-text-black is-2">Enter game details: </h1>
+  
+  <?php 
 
+  $sql = "SELECT * 
+          FROM game g, status s
+          WHERE g.gid='$gid' and g.gid=s.gid";
+
+  $result = mysqli_query($conn,$sql);
+
+  ?>
     
-    <form name='myForm' action="game_add2.php" onsubmit="return validategameForm()" method='post' enctype="multipart/form-data">
+    <form name='myForm' action="game_mod3.php?gid=<?php echo $gid; ?>&action=2" onsubmit="return validategameForm()" method='post' enctype="multipart/form-data">
+
+          <?php
+
+          while ($row = mysqli_fetch_assoc($result))
+          {
           
+            $description = strip_tags($row['description']);   
+            //$description = nl2br($description);
+            //$description = addslashes($description);
+          ?>
+          
+          <div class='field'>
+          
+            <img src="../images/<?php echo $row['image']?>"  width="500" height="600">
+          
+          </div>
+
           <div class='field'>
           <label class='label'>Name:</label>
           <div class='control'>
-            <input class='input' name='name' type='text' placeholder=''>
+            <input class='input' name='name' type='text' value='<?php echo $row['name']; ?>' placeholder=''>
           </div>
           </div>
           <div class='field'>
           <label class='label'>Year:</label>
           <div class='control'>
-            <input class='input' name='year' type='text' placeholder=''>
+            <input class='input' name='year' type='text' value='<?php echo $row['year']; ?>' placeholder=''>
           </div>
           </div>
 
@@ -195,7 +222,7 @@
           <div class='field'>
           <label class='label'>Price:</label>
           <div class='control'>
-            <input class='input' name='price' type='text' placeholder=''>
+            <input class='input' name='price' type='text' value='<?php echo $row['price']; ?>' placeholder=''>
           </div>
           </div>
 
@@ -207,24 +234,22 @@
           
                 <?php 
 
-                require "connection.php";
-
-                  $sql = "
+                  $sql2 = "
                     SELECT cid, name
                     FROM category";
 
-                  $result = mysqli_query($conn,$sql);
+                  $result2 = mysqli_query($conn,$sql2);
 
                     //$rowcount = mysqli_num_rows($result);
 
-                  while ($row = mysqli_fetch_assoc($result))
+                  while ($row2 = mysqli_fetch_assoc($result2))
                   {
                   
 
                 ?>
 
           
-                <option value="<?php echo $row['cid']; ?>"><?php echo $row['name'];?></option>
+                <option value="<?php echo $row2['cid']; ?>"><?php echo $row2['name'];?></option>
                 
 
               <?php 
@@ -241,14 +266,14 @@
           <div class="field">
             <div class="control">
               <label class="label">Description</label>
-              <textarea class="textarea is-primary" placeholder="Description" name="description"></textarea>
+              <textarea class="textarea is-primary" name="description"><?php echo $description; ?></textarea>
             </div>
           </div>
 
           <div class="field">
             <div class="control">
-              <label class="label">Units available:</label>
-              <input class='input' name='availnum' type='text' placeholder=''>
+              <label class="label">Total units available:</label>
+              <input class='input' name='availnum' type='text' value='<?php echo $row['total']; ?>' placeholder=''>
             </div>
           </div>
 
@@ -258,6 +283,12 @@
               <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
             </div>
           </div>
+
+          <?php
+
+          }
+
+          ?>
      
         <br>
         <div class='field is-grouped'>
