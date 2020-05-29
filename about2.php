@@ -1,11 +1,17 @@
 
-
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      #map {width: 100%; height: 600px;}
+    </style>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GameSwap | Home</title>
+    <title>GameSwap | Category</title>
     <link rel="stylesheet" href="bulma.css">
     <link rel="icon" href="icon.png">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -19,9 +25,7 @@
     </style>
 
   
-    <?php
-      define ('SITE_ROOT', realpath(dirname(__FILE__)));
-    ?>
+
 
 
   </head>
@@ -43,95 +47,52 @@
             <span></span>
             <span></span>
             <span></span>
-                
           </span>
         </div>
         <div id="navbarMenuHeroB" class="navbar-menu">
           <div class="navbar-end">
             <a class="navbar-item is-active" href="index.php">Home</a>
             <a class="navbar-item" href="about2.php">About us</a>
-            <a class="navbar-item" href="register.php">Register</a>
-            <a class="navbar-item" href="login.php">Login</a>
           </div>
         </div>
       </div>
     </nav>
   </div>
 
-  <section class="hero is-white">
+  <section class="hero is-white is-fullheight">
   <div class="hero-body">
 
     <div class="container">
-      
-      <center>
-    	<div class="columns  is-vcentered">
-      <div class="column">
-        
-
-        
-        <div class="notification has-text-left has-background-light" style="opacity: 0.8">
-
-          <?php
-        if(isset($_GET["register"]))
-        {
-          echo "<div class='notification is-success'>
-               Registered successfully.
-              </div>";
-        }
-
-        if(isset($_GET["logout"]))
-        {
-          echo "<div class='notification is-success'>
-               Logged out successfully
-              </div>";
-        }
-
-        if(isset($_GET["error"]))
-        {
-          echo "<div class='notification is-danger'>
-               Error occured.
-              </div>";
-        }
-        ?>
-
-          <h1 class="title has-text-black is-1"><b>Gaming redefined </b></h1><br>
-          <ul class="is-size-3">
-            <li>20,000+ games</li>
-            <li>2 million+ users</li>
-            <li>Constant updates</li>
-          </ul>  
-
-          <br><p class="is-size-4">What are you waiting for? <a href="register.php">Join now!</a></p>
-          
-         
-          
-        </div>
+      <div class='notification has-text-left has-background-light' style='opacity: 0.95'>
+         <h1 class="title has-text-black is-4"><b>Mission statement: </b></h1>
       
 
-      </div>
-      <div class="column is-three-fifths">
-        
-        <img src="doomguy.png" alt="Smiley face" >
+        <p>Owning video games can be very expensive. There are only so many times that you can play a game before you're done with every aspect of it. Resell value of video games fall rapidly after its release. Thus, save money and rent games instead using <b>GameSwap</b>!  </p> <br>
+
+        <h1 class="title has-text-black is-4"><b>Our headquarters: </b></h1>
+
+        <div id='map'></div>
+        <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic29oZWxyYWhtYW45NyIsImEiOiJjazhyN2w4MHAwYnVrM2RwZGwwb21vZXFoIn0.64QVA4qIA8bVGnUqm9ridQ';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        center: [90.425162, 23.780806],
+        zoom: 13,
+        style: 'mapbox://styles/mapbox/streets-v11'
+        });
+
+        var marker = new mapboxgl.Marker()
+        .setLngLat([90.425162, 23.780806])
+        .addTo(map);
+        </script>
+
       
-      </div>
-      
-      </div>
-    </center>
+       </div>
+     </div>
 
-  	</div>
+    </section>
 
 
-
-
-
-
-	</div>
-
-      
-
-  </div>
-
-</section>
 
 <div class="hero-foot"><div class="container has-text-centered"><br><p>© 2020 GameSwap. All rights reserved. All trademarks are property of their respective owners. VAT included in all prices where applicable.<br><br></p></div></div>
 
@@ -167,6 +128,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
 
 
