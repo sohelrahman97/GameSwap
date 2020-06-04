@@ -13,7 +13,7 @@
     <title>GameSwap | Home</title>
     <link rel="stylesheet" href="bulma.css">
     <link rel="icon" href="icon.png">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
     <style>
 
       

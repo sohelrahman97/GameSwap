@@ -59,19 +59,6 @@ if(isset($_GET["gid"]))
     <title>GameSwap | View game</title>
     <link rel="stylesheet" href="bulma.css">
     <link rel="icon" href="icon.png">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <style>
-
-      .hero-body
-      {
-        background: url(background.jpg) center/cover;
-      }
-    
-    </style>
-
-  
-
-
 
   </head>
 
@@ -235,6 +222,8 @@ if(isset($_GET["gid"]))
 
           <?php
 
+            $showtempmsg = 0;
+
             $sql = "
               SELECT ret
               FROM usr_games
@@ -246,8 +235,13 @@ if(isset($_GET["gid"]))
 
             if($rowcount != 0) 
               {
+                // User has not returned this game
                 $avail_flag = 1;
+                $showtempmsg = 1;
+                $tempmsg = "<br><br><a href='http://localhost/gameswap/userpanel.php'>Return game</a>";
+
                 $str='Not returned';
+                
               }
 
 
@@ -273,7 +267,11 @@ if(isset($_GET["gid"]))
                 echo "</form>";
               }
 
-            else echo "<input class='button is-danger is-medium' type='submit' value='$str'>";
+            else
+              {
+                echo "<input class='button is-danger is-medium' type='submit' value='$str'>";
+                if($showtempmsg == 1) echo $tempmsg;
+              } 
 
 
             echo "<br><hr>";

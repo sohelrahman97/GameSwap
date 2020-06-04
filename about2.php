@@ -7,24 +7,11 @@
     </style>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
-
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GameSwap | Category</title>
     <link rel="stylesheet" href="bulma.css">
     <link rel="icon" href="icon.png">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <style>
-
-      .hero-body
-      {
-        background: url(background.jpg) center/cover;
-      }
-    
-    </style>
-
-  
 
 
 

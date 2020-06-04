@@ -20,6 +20,11 @@
   }
 }
 
+.hero-body {
+  background: url(background.jpg) center/cover;
+}
+
+
 .delete, .modal-close, .is-unselectable, .button, .file, .breadcrumb, .pagination-previous,
 .pagination-next,
 .pagination-link,
@@ -10267,6 +10272,7 @@ label.panel-block:hover {
   flex-grow: 1;
   flex-shrink: 0;
   padding: 3rem 1.5rem;
+
 }
 
 .section {

@@ -13,7 +13,7 @@
     <title>GameSwap | Home</title>
     <link rel="stylesheet" href="bulma.css">
     <link rel="icon" href="icon.png">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
     <script src="registerValidate.js"></script>
     <style>
 
@@ -134,7 +134,7 @@
     if(isset($_GET["register"]))
           {
             echo "<div class='notification is-success'>
-                 New admin added.
+                 New user added.
                 </div>";
           }
 

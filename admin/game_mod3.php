@@ -24,40 +24,65 @@ exit;
 $gid = $_GET['gid'];
 $action = $_GET['action'];
 
-$name = $_POST['name'];
-$year = $_POST['year'];
-$rating = $_POST['rating'];
-$price = $_POST['price'];
-$category = $_POST['category'];
-$description = $_POST['description'];
-$availnum = $_POST['availnum'];
-$flag = 0;
 
-// Take care of apostrophes in the description text.
-$description = mysqli_real_escape_string($conn, $description);
-//$description = strip_tags($_POST['description']);   
-//$description = nl2br($description);
-
-
-// Find out the current amount of copies availble, and only allow new values if it's greater than the current value
-$sql = "
-              SELECT total
-              FROM status
-              WHERE gid='$gid'";
-
-$result = mysqli_query($conn,$sql);
-$row = mysqli_fetch_assoc($result);
-$curravailnum = $row['gid'];
-
-if($availnum<$curravailnum)
+if($action==1)
 {
-  header("Location: game_mod2.php?gid=$gid&error=Error - You cannot reduce the number of available copies");
-  $flag = 1;
+  $sql = "
+          DELETE FROM game
+          WHERE gid='$gid'";
+
+  $result = mysqli_query($conn,$sql);
+
+  $sql = "
+          DELETE FROM status
+          WHERE gid='$gid'";
+
+  $result = mysqli_query($conn,$sql);
+
+  $sql = "
+          DELETE FROM usr_games
+          WHERE gid='$gid'";
+
+  $result = mysqli_query($conn,$sql);
+
+  header("Location: game_mod.php?success=1");
   exit; 
 }
-
 if($action==2)
 {
+  $name = $_POST['name'];
+  $year = $_POST['year'];
+  $rating = $_POST['rating'];
+  $price = $_POST['price'];
+  $category = $_POST['category'];
+  $description = $_POST['description'];
+  $availnum = $_POST['availnum'];
+  $flag = 0;
+
+  // Take care of apostrophes in the description text.
+  $description = mysqli_real_escape_string($conn, $description);
+  //$description = strip_tags($_POST['description']);   
+  //$description = nl2br($description);
+
+
+  // Find out the current amount of copies availble, and only allow new values if it's greater than the current value
+  $sql = "
+                SELECT total
+                FROM status
+                WHERE gid='$gid'";
+
+  $result = mysqli_query($conn,$sql);
+  $row = mysqli_fetch_assoc($result);
+  $curravailnum = $row['gid'];
+
+  //Digital game codes do not get damaged, so the number of total game copies of GameSwap should not decrease
+  if($availnum<$curravailnum)
+  {
+    header("Location: game_mod2.php?gid=$gid&error=Error - You cannot reduce the number of available copies");
+    $flag = 1;
+    exit; 
+  }
+
   //check if new image is uploaded
   if($_FILES["fileToUpload"]["tmp_name"] == "")
   {

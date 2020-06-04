@@ -13,7 +13,7 @@
     <title>GameSwap | Home</title>
     <link rel="stylesheet" href="bulma.css">
     <link rel="icon" href="icon.png">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
     <script src="registerValidate.js"></script>
     <style>
 
@@ -174,6 +174,8 @@
              <th>Price</th>
 
              <th></th>
+
+             <th></th>
         </tr>  
         
         <tr>  
@@ -197,6 +199,8 @@
              <td><?php echo  "$" . $row['price']; ?></td> 
 
              <td><a href="game_mod2.php?gid=<?php echo  $row['gid']; ?> "> View details/Edit </a></td>
+
+             <td><a href="game_mod3.php?gid=<?php echo  $row['gid']; ?>&action=1"> <button class="button is-danger">Delete</button> </a></td>
 
 
         </tr>  

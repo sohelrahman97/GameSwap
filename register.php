@@ -3,20 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register| People's Portal </title>
+    <title>Register | GameSwap </title>
     <link rel="stylesheet" href="bulma.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="registerValidate.js"></script>
     <link rel="icon" href="icon.png">
-    <style>
 
-      .hero-body
-      {
-        background: url(background.jpg) center/cover;
-      }
-    
-    </style>
-    
 
   </head>
 

@@ -14,16 +14,7 @@ session_start();
     <title>GameSwap | Welcome</title>
     <link rel="stylesheet" href="bulma.css">
     <link rel="icon" href="icon.png">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <style>
 
-      .hero-body
-      {
-        background: url(background.jpg) center/cover;
-      }
-
-          
-    </style>
 
   <?php
   

@@ -10267,6 +10267,7 @@ label.panel-block:hover {
   flex-grow: 1;
   flex-shrink: 0;
   padding: 3rem 1.5rem;
+  background: url(background.jpg) center/cover;
 }
 
 .section {

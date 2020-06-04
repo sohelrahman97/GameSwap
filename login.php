@@ -3,18 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login | People's Portal</title>
+    <title>Login | GameSwap</title>
     <link rel="stylesheet" href="bulma.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link rel="icon" href="icon.png">
-    <style>
 
-      .hero-body
-      {
-        background: url(background.jpg) center/cover;
-      }
-    
-    </style>
+    <link rel="icon" href="icon.png">
+
     
 
   </head>
@@ -69,7 +62,6 @@
         
         
         <hr>
-        <p><a href=""><u>Forgot password?</u></a>
         <p>Not a user yet? <a href="register.php"><u>Register here</u></a>
         </div>
         </div>
